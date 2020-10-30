@@ -1,5 +1,4 @@
 const { Client, RichEmbed, Collection } = require("discord.js");
-const { config } = require("dotenv");
 const { updatePresence } = require("./functions.js");
 const { commandArray } = require("./handler/command.js");
 const fs = require("fs");
@@ -7,10 +6,6 @@ const fs = require("fs");
 const client = new Client({
     disableEveryone: true
 })
-
-config({
-    path: __dirname + "/.env"
-});
 
 var prefix = process.env.PREFIX;
 module.exports.prefix = prefix;
