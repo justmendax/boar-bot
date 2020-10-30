@@ -1,6 +1,7 @@
 const { Client, RichEmbed, Collection } = require("discord.js");
 const { updatePresence } = require("./functions.js");
 const { commandArray } = require("./handler/command.js");
+require('dotenv').config();
 const fs = require("fs");
 
 const client = new Client({
@@ -14,6 +15,7 @@ client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./commands/");
 client.activated = new Collection();
+client.queue = new Collection();
 
 ["command"].forEach(handler => {
     require(`./handler/${handler}`)(client);
