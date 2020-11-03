@@ -9,25 +9,17 @@ module.exports = {
     description: "Enables a command you enter",
     usage: "<command>",
     run: async (client, message, args) => {
-        if (message.author.id !== '251758061981532162') {
+        if (message.author.id !== '251758061981532162')
             return message.channel.send(`Only ${message.member} can use this command!`)
-                .then(m => m.delete(5000));
-        }
 
-        if (!args[0]) {
+        if (!args[0])
             return message.channel.send("Give me a command to enable you fucking retard.")
-                .then(m => m.delete(5000));
-        }
 
-        if(!commandArray.some(cmd => cmd[0] === args[0] + ".js")) {
+        if(!commandArray.some(cmd => cmd[0] === args[0] + ".js"))
             return message.channel.send("That command doesn't exist, moron.")
-                .then(m => m.delete(5000));
-        }
 
-        if(enabled[enabled.indexOf(args[0])]) {
+        if(enabled[enabled.indexOf(args[0])])
             return message.channel.send("That command is already enabled, idiot.")
-                .then(m => m.delete(5000));
-        }
 
         readdirSync("./commands/").forEach(dir => {
             
@@ -53,6 +45,3 @@ module.exports = {
         message.channel.send(embed);
     }
 }
-
-module.exports.commandArray = commandArray;
-module.exports.enabled = enabled;

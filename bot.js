@@ -1,7 +1,7 @@
 const { Client, MessageEmbed, Collection } = require("discord.js");
 const { updatePresence } = require("./functions.js");
 const { commandArray } = require("./handler/command.js");
-require('dotenv').config();
+require("dotenv").config();
 const fs = require("fs");
 
 const client = new Client({
@@ -16,6 +16,7 @@ client.aliases = new Collection();
 client.categories = fs.readdirSync("./commands/");
 client.activated = new Collection();
 client.queue = new Collection();
+client.disabledBoar = new Collection();
 
 ["command"].forEach(handler => {
     require(`./handler/${handler}`)(client);
@@ -63,7 +64,7 @@ client.on("message", async message => {
     if (!command)
         command = client.commands.get(client.aliases.get(cmd));
 
-    if (command && command.cooldown) {
+    if (command && command.cooldown && command.exceptCooldown == false) {
         const trigger = client.activated.get(command.name);
         const now = Date.now();
         if (typeof trigger == 'undefined') {
@@ -71,7 +72,7 @@ client.on("message", async message => {
         } else {
             const left = ((trigger + command.cooldown * 1000 - now) / 1000).toFixed(1);
             const embed = new MessageEmbed()
-                .setColor(client.guilds.get('714210875506032670').me.displayHexColor)
+                .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
                 .addField('Too fast! <:boarconfounded:738805584807067789>', `Please wait ${left} more second(s) before reusing the \`${command.name}\` command.`)
                 .setFooter(client.user.username, client.user.avatarURL)
                 .setTimestamp();

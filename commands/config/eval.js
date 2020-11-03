@@ -28,7 +28,7 @@ module.exports = {
             const toEval = args.join(" ");
             const evaluated = eval(toEval);
 
-            let embed = new MessageEmbed()
+            const embed = new MessageEmbed()
                 .setColor("GREEN")
                 .setTimestamp()
                 .setFooter(client.user.username, client.user.avatarURL)
@@ -39,7 +39,7 @@ module.exports = {
 
             message.channel.send(embed);
         } catch (e) {
-            let embed = new MessageEmbed()
+            const embed = new MessageEmbed()
                 .setColor("RED")
                 .setTimestamp()
                 .setFooter(client.user.username, client.user.avatarURL)

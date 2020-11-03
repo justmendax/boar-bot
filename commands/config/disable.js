@@ -7,30 +7,20 @@ module.exports = {
     description: "Disables a command you enter",
     usage: "<command>",
     run: async (client, message, args) => {
-        if (message.author.id !== '251758061981532162') {
+        if (message.author.id !== '251758061981532162')
             return message.channel.send(`Only **${message.guild.members.get("251758061981532162").user.tag}** can use this command!`)
-                .then(m => m.delete(5000));
-        }
 
-        if (!args[0]) {
+        if (!args[0])
             return message.channel.send("Give me a command to disable you fucking retard.")
-                .then(m => m.delete(5000));
-        }
 
-        if(client.commands.some(cmd => cmd.name === args[0] && cmd.category === "config")) {
+        if(client.commands.some(cmd => cmd.name === args[0] && cmd.category === "config"))
             return message.channel.send("You tried. <:boarclown:770291465565110274>")
-                .then(m => m.delete(5000));
-        }
 
-        if(!client.commands.some(cmd => cmd.name === args[0])) {
+        if(!client.commands.some(cmd => cmd.name === args[0]))
             return message.channel.send("That command doesn't exist, moron.")
-                .then(m => m.delete(5000));
-        }
 
-        if(!enabled[enabled.indexOf(args[0])]) {
+        if(!enabled[enabled.indexOf(args[0])])
             return message.channel.send("That command is already disabled, idiot.")
-                .then(m => m.delete(5000));
-        }
 
         client.commands.delete(args[0]);
         enabled.splice(enabled.indexOf(args[0]), 1);

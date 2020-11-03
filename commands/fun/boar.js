@@ -23,7 +23,5 @@ module.exports = {
                     .setFooter(`instagram.com/${json.user.instagram_username}`, 'https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300');
                 message.channel.send(embed);
             });
-
-        message.delete();
     }
 }

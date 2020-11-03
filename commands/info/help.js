@@ -28,7 +28,12 @@ function getAll (client, message) {
     }
 
     const info = client.categories
-        .map(cat => `\n__**${cat[0].toUpperCase() + cat.slice(1)}**__ \n${commands(cat)}`)
+        .map(cat => {
+            if(message.author.id != "251758061981532162" && cat == "config")
+                return "";
+            else
+                return `\n__**${cat[0].toUpperCase() + cat.slice(1)}**__ \n${commands(cat)}`;
+        })
         .reduce((string, category) => string + "\n" + category);
 
     return message.channel.send(embed.setDescription(info));
