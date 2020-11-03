@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
 const { toJson } = require("unsplash-js");
 global.fetch = fetch;
@@ -16,7 +16,7 @@ module.exports = {
         unsplash.photos.getRandomPhoto({ query: "boar"})
             .then(toJson)
             .then(json => {
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                     .setImage(json.urls.raw)
                     .setColor(client.guilds.get('714210875506032670').me.displayHexColor)
                     .setAuthor(`${json.user.name} (${json.user.username}) on Unsplash`, json.user.profile_image.large, json.user.links.html)

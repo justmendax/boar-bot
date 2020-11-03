@@ -1,4 +1,7 @@
 const ytdl = require("ytdl-core");
+const sf = require("seconds-formater");
+
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "play",
@@ -6,17 +9,32 @@ module.exports = {
     description: "Plays a song you choose from YouTube",
     usage: "[query | url]",
     run: async (client, message, args) => {
-        const voiceChannel = message.member.voiceChannel;
-
+        const voiceChannel = message.member.voice.channel;
+        var embed = new MessageEmbed()
+            .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+            .addField("Oops!", "You **must** be in a **voice channel** to play music!")
+            .setFooter(client.user.username, client.user.avatarURL)
+            .setTimestamp();
         if(!voiceChannel)
-            return message.channel.send("You must be in a voice channel to play music!");
+            return message.channel.send(embed);
+
+        embed = new MessageEmbed()
+            .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+            .addField("Oops!", "I **need** the permissions to **join** and **speak** in your voice channel!")
+            .setFooter(client.user.username, client.user.avatarURL)
+            .setTimestamp();
         const permissions = voiceChannel.permissionsFor(message.client.user);
         if(!permissions.has("CONNECT") || !permissions.has("SPEAK"))
-            return message.channel.send("I need the permissions to join and speak in your voice channel!");
+            return message.channel.send(embed);
+
         const songInfo = await ytdl.getInfo(args[0]);
         const song = {
             title: songInfo.videoDetails.title,
-            url: songInfo.videoDetails.video_url
+            url: songInfo.videoDetails.video_url,
+            thumbnail: songInfo.videoDetails.thumbnail.thumbnails[1].url,
+            length: songInfo.videoDetails.lengthSeconds,
+            requesterNickname: message.member.nickname,
+            requesterTag: message.member.user.tag
         };
 
         if(!client.queue.get(message.guild.id)) {
@@ -25,7 +43,7 @@ module.exports = {
                 voiceChannel: voiceChannel,
                 connection: null,
                 songs: [],
-                volume: 5,
+                volume: 2.5,
                 playing: true
             }
             client.queue.set(message.guild.id, queueConstruct);
@@ -57,12 +75,25 @@ function start(client, guild, song) {
     }
 
     const dispatcher = queue.connection
-        .playOpusStream(ytdl(song.url))
+        .play(ytdl(song.url))
+        .on("start", () => {
+            const now = Date.now();
+            module.exports.currentSongStartTime = now;
+        })
         .on("finish", () => {
             queue.songs.shift();
             start(client, guild, queue.songs[0]);
         })
         .on("error", err => console.error(err));
     dispatcher.setVolumeLogarithmic(queue.volume / 5);
-    queue.textChannel.send(`Started playing: **${song.title}**`);
+    const embed = new MessageEmbed()
+            .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+            .setTitle(song.title)
+            .setURL(song.url)
+            .setAuthor("Now Playing...", client.user.displayAvatarURL())
+            .addField(`Requested by: ${song.requesterNickname} (${song.requesterTag})`, `*0:00 / ${song.length >= 3600 ? sf.convert(song.length).format('HH:MM:SS') : sf.convert(song.length).format('MM:SS')}*`)
+            .setThumbnail(song.thumbnail)
+            .setFooter(client.user.username, client.user.avatarURL)
+            .setTimestamp();
+    queue.textChannel.send(embed);
 }

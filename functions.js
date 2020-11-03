@@ -1,11 +1,11 @@
 module.exports = {
     updatePresence: function(client) {
         return client.user.setPresence({
-            status: "online",
-            game: {
-                type: "WATCHING",
-                name: client.guilds.size === 1 ? `over 1 guild.` : `over ${client.guilds.size} guilds.`
-            }
+        activity: {
+		name: `over ${client.guilds.cache.size} guilds.`,
+		type: 'WATCHING'
+	},
+	status: "online"
         });
     },
 

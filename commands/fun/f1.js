@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const snekfetch = require('snekfetch');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
         if (!allowed.length) return message.channel.send('It seems we are out of fresh posts... :boarconfounded: Try again later.');
         const randomnumber = Math.floor(Math.random() * allowed.length)
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setImage(allowed[randomnumber].data.url)
             .setTitle(allowed[randomnumber].data.title)
             .setColor(client.guilds.get('714210875506032670').me.displayHexColor)

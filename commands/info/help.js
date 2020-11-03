@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { prefix } = require("../../bot.js");
 
 module.exports = {
@@ -17,8 +17,8 @@ module.exports = {
 }
 
 function getAll (client, message) {
-    const embed = new RichEmbed()
-        .setColor(client.guilds.get('714210875506032670').me.displayHexColor)
+    const embed = new MessageEmbed()
+        .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
 
     const commands = (category) => {
         return client.commands
@@ -35,7 +35,7 @@ function getAll (client, message) {
 }
 
 function getCMD (client, message, input) {
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
 
     const cmd = client.commands.get(input.toLowerCase()) || client.commands.get(client.aliases.get(input.toLowerCase()));
 

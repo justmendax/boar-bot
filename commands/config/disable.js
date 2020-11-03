@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 var { enabled } = require("../../handler/command.js");
 
 module.exports = {
@@ -35,7 +35,7 @@ module.exports = {
         client.commands.delete(args[0]);
         enabled.splice(enabled.indexOf(args[0]), 1);
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor(client.guilds.get('714210875506032670').me.displayHexColor)
             .setTimestamp()
             .setAuthor(message.author.tag, message.author.avatarURL)
