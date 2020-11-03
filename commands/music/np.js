@@ -3,8 +3,8 @@ const sf = require("seconds-formater");
 const { currentSongStartTime } = require("./play");
 
 module.exports = {
-    name: "nowplaying",
-    aliases: ['np'],
+    name: "np",
+    aliases: ['nowplaying'],
     category: "music",
     description: "Shows the currently playing song",
     run: async (client, message, args) => {
