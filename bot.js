@@ -40,12 +40,12 @@ client.on("ready", () => {
 });
 
 client.on('guildCreate', (guild) => {
-    console.log(`[+] Guild '${guild.name}' added (ID: ${guild.id}, Owner: ${guild.owner.user.tag} / ${guild.ownerID}).`);
+    console.log(`[+] Guild '${guild.name}' added (ID: ${guild.id}).`);
     updatePresence(client);
 });
 
 client.on('guildDelete', (guild) => {
-    console.log(`[-] Guild '${guild.name}' removed (ID: ${guild.id}, Owner: ${guild.owner.user.tag} / ${guild.ownerID}).`);
+    console.log(`[-] Guild '${guild.name}' removed (ID: ${guild.id}).`);
     updatePresence(client);
 });
 
