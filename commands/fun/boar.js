@@ -18,7 +18,7 @@ module.exports = {
             .then(json => {
                 const embed = new MessageEmbed()
                     .setImage(json.urls.raw)
-                    .setColor(client.guilds.get('714210875506032670').me.displayHexColor)
+                    .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
                     .setAuthor(`${json.user.name} (${json.user.username}) on Unsplash`, json.user.profile_image.large, json.user.links.html)
                     .setFooter(`instagram.com/${json.user.instagram_username}`, 'https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300');
                 message.channel.send(embed);
