@@ -28,7 +28,7 @@ client.on("ready", () => {
     const embed = new MessageEmbed()
         .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
         .addField(`Bot __*${client.user.username}*__ loaded sucessfully! <:boarparty:738805789371924500>`, `**Prefix: \`${prefix}\`\n\nCommand status:**`)
-        .setFooter(client.user.username, client.user.avatarURL)
+        .setFooter(client.user.username, client.user.avatarURL())
         .setTimestamp();
 
     commandArray.forEach(c => {
@@ -74,7 +74,7 @@ client.on("message", async message => {
             const embed = new MessageEmbed()
                 .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
                 .addField('Too fast! <:boarconfounded:738805584807067789>', `Please wait ${left} more second(s) before reusing the \`${command.name}\` command.`)
-                .setFooter(client.user.username, client.user.avatarURL)
+                .setFooter(client.user.username, client.user.avatarURL())
                 .setTimestamp();
             return message.channel.send(embed);
         }
@@ -84,6 +84,6 @@ client.on("message", async message => {
         command.run(client, message, args);
         setTimeout(() => client.activated.delete(command.name), command.cooldown * 1000);
     }
-})
+});
 
 client.login(process.env.TOKEN);

@@ -21,14 +21,14 @@ module.exports = {
                 args[0] = valid;
         }
         const receiver = getMember(message, args[0]);
-        const disabled = client.disabledBoar.get(message.author.id);
+        const disabled = client.disabledBoar.get(receiver.id);
         if(disabled) {
             module.exports.exceptCooldown = true;
             const embed = new MessageEmbed()
                 .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
                 .setTimestamp()
-                .setAuthor(message.author.tag, message.author.avatarURL)
-                .setFooter(client.user.username, client.user.avatarURL)
+                .setAuthor(message.author.tag, message.author.avatarURL())
+                .setFooter(client.user.username, client.user.avatarURL())
                 .setTitle(`A random picture of a boar could not be sent to __${receiver.user.tag}__ because they toggled the ability to receive them! :boar:`);
             return message.channel.send(embed);
         }
@@ -49,8 +49,8 @@ module.exports = {
                     const failEmbed = new MessageEmbed()
                         .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
                         .setTimestamp()
-                        .setAuthor(message.author.tag, message.author.avatarURL)
-                        .setFooter(client.user.username, client.user.avatarURL)
+                        .setAuthor(message.author.tag, message.author.avatarURL())
+                        .setFooter(client.user.username, client.user.avatarURL())
                         .setTitle(`A random picture of a boar could not be sent to __${receiver.user.tag}__ because they don't accept DMs or blocked me! :boar:`);
 
                     await receiver.send(embed).catch(() => { message.channel.send(failEmbed); kill = true; return; });
@@ -62,8 +62,8 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
             .setTimestamp()
-            .setAuthor(message.author.tag, message.author.avatarURL)
-            .setFooter(client.user.username, client.user.avatarURL)
+            .setAuthor(message.author.tag, message.author.avatarURL())
+            .setFooter(client.user.username, client.user.avatarURL())
             .setTitle(`A random picture of a boar has been sent to __${receiver.user.tag}__! :boar:`);
 
         message.channel.send(embed);

@@ -39,8 +39,8 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
             .setTimestamp()
-            .setAuthor(message.author.tag, message.author.avatarURL)
-            .setFooter(client.user.username, client.user.avatarURL)
+            .setAuthor(message.author.tag, message.author.avatarURL())
+            .setFooter(client.user.username, client.user.avatarURL())
             .setTitle(`The \`${args[0]}\` command has been enabled successfully! :boar:`);
         message.channel.send(embed);
     }

@@ -19,7 +19,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
             .setTitle(m)
-            .setFooter(client.user.username, client.user.avatarURL)
+            .setFooter(client.user.username, client.user.avatarURL())
             .setTimestamp();
         message.channel.send(embed);
     }

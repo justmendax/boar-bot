@@ -47,7 +47,7 @@ function getCMD (client, message, input) {
     let info = `No information found for command **${input.toLowerCase()}**.`;
 
     if (!cmd) {
-        return message.channel.send(embed.setColor("RED").setDescription(info).setFooter(client.user.username, client.user.avatarURL).setTimestamp());
+        return message.channel.send(embed.setColor("RED").setDescription(info).setFooter(client.user.username, client.user.avatarURL()).setTimestamp());
     }
 
     if (cmd.name) info = `**Command Name**: ${cmd.name}`;
@@ -56,5 +56,5 @@ function getCMD (client, message, input) {
     if (cmd.usage)
         info += `\n**Usage**: ${cmd.usage} (Syntax: <> = required, [] = optional)`;
 
-    return message.channel.send(embed.setColor("GREEN").setDescription(info).setFooter(client.user.username, client.user.avatarURL).setTimestamp());
+    return message.channel.send(embed.setColor("GREEN").setDescription(info).setFooter(client.user.username, client.user.avatarURL()).setTimestamp());
 }
