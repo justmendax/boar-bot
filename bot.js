@@ -5,7 +5,8 @@ require("dotenv").config();
 const fs = require("fs");
 
 const client = new Client({
-    disableEveryone: true
+    disableMentions: "everyone",
+    fetchAllMembers: true
 })
 
 var prefix = process.env.PREFIX;
