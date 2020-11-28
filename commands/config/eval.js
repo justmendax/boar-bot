@@ -16,7 +16,7 @@ module.exports = {
 
         try {
             if (args.join(" ").toLowerCase().includes("token")) {
-                message.channel.send("You tried. <:boarclown:782375751802290226>");
+                message.channel.send("You tried. :boar:");
                 return;
             }
 

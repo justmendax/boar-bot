@@ -11,7 +11,7 @@ module.exports = {
             .get('https://www.reddit.com/r/F1Porn.json?sort=top&t=month')
             .query({ limit: 800 });
         const allowed = message.channel.nsfw ? body.data.children : body.data.children.filter(post => !post.data.over_18);
-        if (!allowed.length) return message.channel.send('It seems we are out of fresh posts... <:boarconfounded:782375986393514014> Try again later.');
+        if (!allowed.length) return message.channel.send('It seems we are out of fresh posts... :boar: Try again later.');
         const randomnumber = Math.floor(Math.random() * allowed.length)
 
         const embed = new MessageEmbed()
