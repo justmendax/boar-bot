@@ -19,6 +19,9 @@ client.activated = new Collection();
 client.queue = new Collection();
 client.disabledBoar = new Collection();
 
+const hostGuild = "775844301531250738";
+module.exports.hostGuild = hostGuild;
+
 ["command"].forEach(handler => {
     require(`./handler/${handler}`)(client);
 })
@@ -27,8 +30,8 @@ client.on("ready", () => {
     console.log(`[*] Client is ready as ${client.user.username}!`);
 
     const embed = new MessageEmbed()
-        .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
-        .addField(`Bot __*${client.user.username}*__ loaded sucessfully! <:boarparty:738805789371924500>`, `**Prefix: \`${prefix}\`\n\nCommand status:**`)
+        .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
+        .addField(`Bot __*${client.user.username}*__ loaded successfully! <:boarparty:738805789371924500>`, `**Prefix: \`${prefix}\`\n\nCommand status:**`)
         .setFooter(client.user.username, client.user.avatarURL())
         .setTimestamp();
 
@@ -36,7 +39,7 @@ client.on("ready", () => {
         embed.addField(c[0], c[1] === true ? '✅' : '❌')
     });
 
-    client.channels.cache.get('737267251916308562').send(embed);
+    client.channels.cache.get('782372013159088168').send(embed);
     updatePresence(client);
 });
 
@@ -73,7 +76,7 @@ client.on("message", async message => {
         } else {
             const left = ((trigger + command.cooldown * 1000 - now) / 1000).toFixed(1);
             const embed = new MessageEmbed()
-                .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+                .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
                 .addField('Too fast! <:boarconfounded:738805584807067789>', `Please wait ${left} more second(s) before reusing the \`${command.name}\` command.`)
                 .setFooter(client.user.username, client.user.avatarURL())
                 .setTimestamp();

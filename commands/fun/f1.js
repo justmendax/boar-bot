@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const snekfetch = require('snekfetch');
+const { hostGuild } = require("../../bot.js");
 
 module.exports = {
     name: "f1",
@@ -16,7 +17,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setImage(allowed[randomnumber].data.url)
             .setTitle(allowed[randomnumber].data.title)
-            .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+            .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
             .setAuthor(`${allowed[randomnumber].data.author} on Reddit`)
             .addField("Other info:", "Upvotes: " + allowed[randomnumber].data.ups + " / Comments: " + allowed[randomnumber].data.num_comments)
             .setFooter(`reddit.com/u/${allowed[randomnumber].data.author}`, 'https://www.redditinc.com/assets/images/site/reddit-logo.png');

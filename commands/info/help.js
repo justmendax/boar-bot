@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { prefix } = require("../../bot.js");
+const { hostGuild } = require("../../bot.js");
 
 module.exports = {
     name: "help",
@@ -18,7 +19,7 @@ module.exports = {
 
 function getAll (client, message) {
     const embed = new MessageEmbed()
-        .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+        .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
 
     const commands = (category) => {
         return client.commands

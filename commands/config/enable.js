@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { commandArray } = require("../../handler/command.js");
 var { enabled } = require("../../handler/command.js");
 const { readdirSync } = require("fs");
+const { hostGuild } = require("../../bot.js");
 
 module.exports = {
     name: "enable",
@@ -37,7 +38,7 @@ module.exports = {
         });
 
         const embed = new MessageEmbed()
-            .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+            .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
             .setTimestamp()
             .setAuthor(message.author.tag, message.author.avatarURL())
             .setFooter(client.user.username, client.user.avatarURL())

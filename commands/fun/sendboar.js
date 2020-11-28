@@ -4,6 +4,7 @@ const { toJson } = require("unsplash-js");
 global.fetch = fetch;
 const Unsplash = require('unsplash-js').default;
 const { getMember, waitInput } = require('../../functions');
+const { hostGuild } = require("../../bot.js");
 
 module.exports = {
     name: "sendboar",
@@ -25,7 +26,7 @@ module.exports = {
         if(disabled) {
             module.exports.exceptCooldown = true;
             const embed = new MessageEmbed()
-                .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+                .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
                 .setTimestamp()
                 .setAuthor(message.author.tag, message.author.avatarURL())
                 .setFooter(client.user.username, client.user.avatarURL())
@@ -42,12 +43,12 @@ module.exports = {
             .then(async (json) => {
                     const embed = new MessageEmbed()
                         .setImage(json.urls.raw)
-                        .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+                        .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
                         .setAuthor(`${json.user.name} (${json.user.username}) on Unsplash`, json.user.profile_image.large, json.user.links.html)
                         .setFooter(`instagram.com/${json.user.instagram_username}`, 'https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300')
                         .addField(`__${message.author.tag}__ sent you a random picture of a boar! :boar:`, `Sent from **${message.guild.name}** in channel **#${message.channel.name}**!`);
                     const failEmbed = new MessageEmbed()
-                        .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+                        .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
                         .setTimestamp()
                         .setAuthor(message.author.tag, message.author.avatarURL())
                         .setFooter(client.user.username, client.user.avatarURL())
@@ -60,7 +61,7 @@ module.exports = {
             return;
         
         const embed = new MessageEmbed()
-            .setColor(client.guilds.cache.get('714210875506032670').me.displayHexColor)
+            .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
             .setTimestamp()
             .setAuthor(message.author.tag, message.author.avatarURL())
             .setFooter(client.user.username, client.user.avatarURL())
