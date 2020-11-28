@@ -15,7 +15,7 @@ module.exports = {
             return message.channel.send("Give me a command to disable you fucking retard.")
 
         if(client.commands.some(cmd => cmd.name === args[0] && cmd.category === "config"))
-            return message.channel.send("You tried. <:boarclown:770291465565110274>")
+            return message.channel.send("You tried. <:boarclown:782375751802290226>")
 
         if(!client.commands.some(cmd => cmd.name === args[0]))
             return message.channel.send("That command doesn't exist, moron.")

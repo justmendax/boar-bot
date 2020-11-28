@@ -31,7 +31,7 @@ client.on("ready", () => {
 
     const embed = new MessageEmbed()
         .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
-        .addField(`Bot __*${client.user.username}*__ loaded successfully! <:boarparty:738805789371924500>`, `**Prefix: \`${prefix}\`\n\nCommand status:**`)
+        .addField(`Bot __*${client.user.username}*__ loaded successfully! <:boarparty:782376621939884072>`, `**Prefix: \`${prefix}\`\n\nCommand status:**`)
         .setFooter(client.user.username, client.user.avatarURL())
         .setTimestamp();
 
@@ -77,7 +77,7 @@ client.on("message", async message => {
             const left = ((trigger + command.cooldown * 1000 - now) / 1000).toFixed(1);
             const embed = new MessageEmbed()
                 .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
-                .addField('Too fast! <:boarconfounded:738805584807067789>', `Please wait ${left} more second(s) before reusing the \`${command.name}\` command.`)
+                .addField('Too fast! <:boarconfounded:782375986393514014>', `Please wait ${left} more second(s) before reusing the \`${command.name}\` command.`)
                 .setFooter(client.user.username, client.user.avatarURL())
                 .setTimestamp();
             return message.channel.send(embed);

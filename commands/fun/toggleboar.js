@@ -10,10 +10,10 @@ module.exports = {
         var m = "";
         if(disabled) {
             client.disabledBoar.delete(message.author.id);
-            m = "You will start receiving boars in your DMs again!";
+            m = "You will start receiving boars in your DMs again! :boar:";
         } else {
             client.disabledBoar.set(message.author.id, true);
-            m = "You will no longer receive boars in your DMs!";
+            m = "You will no longer receive boars in your DMs! <:boarconfounded:782375986393514014>";
         }
         
         const embed = new MessageEmbed()
