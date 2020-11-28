@@ -9,7 +9,7 @@ module.exports = {
     usage: "<command>",
     run: async (client, message, args) => {
         if (message.author.id !== '251758061981532162')
-            return message.channel.send(`Only **${message.guild.members.get("251758061981532162").user.tag}** can use this command!`)
+            return message.channel.send(`Only **${message.guild.members.cache.get("251758061981532162").user.tag}** can use this command!`)
 
         if (!args[0])
             return message.channel.send("Give me a command to disable you fucking retard.")
