@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const { toJson } = require("unsplash-js");
 global.fetch = fetch;
 const Unsplash = require('unsplash-js').default;
-const { getMember, waitInput } = require('../../functions');
+const { getMember, waitInput } = require('../../functions.js');
 const { hostGuild } = require("../../bot.js");
 
 module.exports = {
