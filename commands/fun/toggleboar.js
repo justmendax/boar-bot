@@ -4,7 +4,7 @@ const { hostGuild } = require("../../bot.js");
 module.exports = {
     name: "toggleboar",
     category: "fun",
-    description: "Toggles the ability of receiving boars in your DMs. :boar:",
+    description: "Toggles the ability of receiving boars in your DMs :boar:",
     run: async (client, message, args) => {
         const disabled = client.disabledBoar.get(message.author.id);
         var m = "";

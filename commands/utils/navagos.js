@@ -4,7 +4,7 @@ const { hostGuild } = require("../../bot.js");
 module.exports = {
     name: "navagos",
     category: "utils",
-    description: "Shows a list of all Navagos playlists.",
+    description: "Shows a list of all Navagos playlists :boar:",
     run: async (client, message, args) => {
         const list = [["Atrocious Infinity and Sons", "https://www.youtube.com/playlist?list=PLzqWn1iG-DYsfXIvuLwI3gF2kutMrYFWd"], 
         ["Atrocious Infinity and Sons II", "https://www.youtube.com/playlist?list=PLrmsk9amz4tY1tG4k3AeXSbbBl9oicdyS"], 
