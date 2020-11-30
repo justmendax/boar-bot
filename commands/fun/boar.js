@@ -10,6 +10,7 @@ module.exports = {
     category: "fun",
     description: "Displays a random picture of a boar :boar:",
     cooldown: 72,
+    exceptCooldown: false,
     run: async (client, message, args) => {
         const accessKey = process.env.ACCESS_KEY;
         const unsplash = new Unsplash({ accessKey: accessKey });
