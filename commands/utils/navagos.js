@@ -10,7 +10,8 @@ module.exports = {
         ["Atrocious Infinity and Sons II", "https://www.youtube.com/playlist?list=PLrmsk9amz4tY1tG4k3AeXSbbBl9oicdyS"], 
         ["THE MOUTH - Uplifting Force I", "https://www.youtube.com/watch?v=teU-ZhfNLfE"],
 	["THE MOUTH - Uplifting Force II (Blue Version)", "https://www.youtube.com/watch?v=KgEALk44pbg"],
-	["THE MOUTH - Uplifting Force II (Red Version)", "https://www.youtube.com/watch?v=teQPo-vH7kI"]];
+	["THE MOUTH - Uplifting Force II (Red Version)", "https://www.youtube.com/watch?v=teQPo-vH7kI"],
+	[`THE MOUTH - Uplifting Force II (Black "End-All" Version)`, "https://www.youtube.com/watch?v=aVDAaol8HEg"]];
         const embed = new MessageEmbed()
             .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
             .setTimestamp()
