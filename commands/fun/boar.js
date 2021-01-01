@@ -15,7 +15,7 @@ module.exports = {
         const accessKey = process.env.ACCESS_KEY;
         const unsplash = new Unsplash({ accessKey: accessKey });
         
-        unsplash.photos.getRandomPhoto({ query: "boar animal"})
+        unsplash.photos.getRandomPhoto({ query: "boar"})
             .then(toJson)
             .then(json => {
                 const embed = new MessageEmbed()
