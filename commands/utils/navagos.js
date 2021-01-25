@@ -13,7 +13,8 @@ module.exports = {
 	["THE MOUTH - Uplifting Force II (Red Version)", "https://www.youtube.com/watch?v=teQPo-vH7kI"],
 	[`THE MOUTH - Uplifting Force II (Black "End-All" Version)`, "https://www.youtube.com/watch?v=aVDAaol8HEg"],
 	["THE MOUTH - Cats and Mouse (SAPP/RL)", "https://www.youtube.com/watch?v=5bsI-L0MOEM"],
-	["THE MOUTH - Heroes of Faith I", "https://www.youtube.com/watch?v=ORY_iWoLreY"]];
+	["THE MOUTH - Heroes of Faith I", "https://www.youtube.com/watch?v=ORY_iWoLreY"],
+	["Dunkler und anderer Berlin", "https://www.youtube.com/playlist?list=PLrmsk9amz4tbqvLScDApU9xdn_s8O3UZU"]];
         const embed = new MessageEmbed()
             .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
             .setTimestamp()
