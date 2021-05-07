@@ -14,6 +14,7 @@ module.exports = {
 	[`Uplifting Force II (Black "End-All" Version)`, "https://www.youtube.com/watch?v=aVDAaol8HEg"],
 	["Uplifting Force III (Anthems of Destiny)", "https://www.youtube.com/watch?v=dnxEKE2xF84"],
 	["Uplifting Force IV (Scroll of Resurrection)", "https://www.youtube.com/watch?v=VqED6GiTJJM"],
+	["Uplifting Force V (State of Transition)", "https://www.youtube.com/watch?v=0gMr-bqwI0k"],
 	["War Thunder: No Limit", "https://www.youtube.com/watch?v=iZw5WggrKrs"],
 	["Cats and Mouse (SAPP/RL)", "https://www.youtube.com/watch?v=5bsI-L0MOEM"],
 	["Heroes of Faith I", "https://www.youtube.com/watch?v=ORY_iWoLreY"],
