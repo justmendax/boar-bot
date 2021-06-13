@@ -19,6 +19,7 @@ module.exports = {
 	["Heroes of Faith I", "https://www.youtube.com/watch?v=ORY_iWoLreY"],
 	["War Thunder: No Limit", "https://www.youtube.com/watch?v=iZw5WggrKrs"],
 	["Sunset Drive", "https://www.youtube.com/watch?v=Mv-zG8SIhU4"],
+	["Midnight Drive", "https://www.youtube.com/watch?v=jNDoQ7GpmQw"],
 	["Cats and Mouse", "https://www.youtube.com/watch?v=5bsI-L0MOEM"]];
         const embed = new MessageEmbed()
             .setColor(client.guilds.cache.get(hostGuild).me.displayHexColor)
