@@ -16,6 +16,7 @@ module.exports = {
 	["Uplifting Force III (Anthems of Destiny)", "https://www.youtube.com/watch?v=dnxEKE2xF84"],
 	["Uplifting Force IV (Scroll of Resurrection)", "https://www.youtube.com/watch?v=VqED6GiTJJM"],
 	["Uplifting Force V (State of Transition)", "https://www.youtube.com/watch?v=0gMr-bqwI0k"],
+	["Uplifting Force VI (New Era)", "https://www.youtube.com/watch?v=KDVvf51hcw8"],
 	["Heroes of Faith I", "https://www.youtube.com/watch?v=ORY_iWoLreY"],
 	["War Thunder: No Limit", "https://www.youtube.com/watch?v=iZw5WggrKrs"],
 	["Sunset Drive", "https://www.youtube.com/watch?v=Mv-zG8SIhU4"],
