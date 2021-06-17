@@ -8,8 +8,8 @@ module.exports = {
     description: "Removes a playlist from the Navagos playlists :boar:",
     usage: "<position>",
     run: async (client, message, args) => {
-        if (!args[0])
-            message.channel.send(`Invalid argument! Run the command again with the following arguments: \`${usage}\`.`);
+        if (!args[0] || isNaN(args[0]))
+            message.channel.send(`Invalid argument! Run the command again with the following argument: \`${usage}\`.`);
 
         const pos = args[0] - 1;
 
