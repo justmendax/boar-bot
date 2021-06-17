@@ -16,7 +16,7 @@ module.exports = {
             .setTitle("Navagos Playlists");
         
         navagos.playlists.forEach((obj) => {
-            embed.addField(obj.title, obj.url);
+            embed.addField(`${navagos.playlists.indexOf(obj) + 1}. ${obj.title}`, obj.url);
         });
 
         message.channel.send(embed);
