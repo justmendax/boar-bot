@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const { toJson } = require("unsplash-js");
 global.fetch = fetch;
 const Unsplash = require('unsplash-js').default;
-const { getMember, waitInput } = require('../../functions.js');
+const { getMember } = require('../../functions.js');
 const { hostGuild } = require("../../bot.js");
 
 module.exports = {
@@ -15,12 +15,10 @@ module.exports = {
     exceptCooldown: false,
     run: async (client, message, args) => {
         if (!args[0]) {
-            const valid = waitInput(message, module.exports.usage);
-            if(!valid) {
-                return module.exports.exceptCooldown = true;
-            } else
-                args[0] = valid;
+            message.channel.send(`Invalid argument! Run the command again with the following argument: \`${usage}\`.`);
+            return module.exports.exceptCooldown = true;
         }
+
         const receiver = getMember(message, args[0]);
         const disabled = client.disabledBoar.get(receiver.id);
         if(disabled) {
@@ -57,7 +55,7 @@ module.exports = {
                     await receiver.send(embed).catch(() => { message.channel.send(failEmbed); kill = true; return; });
                 });
         
-        if (kill)
+        if(kill)
             return;
         
         const embed = new MessageEmbed()

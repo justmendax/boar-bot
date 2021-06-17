@@ -34,21 +34,5 @@ module.exports = {
 
     formatDate: function(date) {
         return new Intl.DateTimeFormat('en-US').format(date);
-    },
-
-    waitInput: function(message, usage) {
-        message.channel.send(`You need to send the following parameter: \`${usage}\`. You have 10 seconds to send it below this message, or write \`cancel\` to cancel the command, before it automatically cancels! :boar:`)
-            .then(msg => message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 10000, errors: ['time'] })
-                .then(received => {
-                    if(received[0].content == "cancel") {
-                        message.channel.send("Command cancelled!");
-                        msg.delete();
-                        return false;
-                    } else return received[0];
-                }).catch(() => {
-                    message.channel.send("Command cancelled!");
-                    msg.delete();
-                    return false;
-                }));
     }
 }
