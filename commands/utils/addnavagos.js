@@ -23,6 +23,8 @@ module.exports = {
 
         var navagos = JSON.parse(fs.readFileSync("commands/utils/navagos.json"));
         var playlists = navagos.playlists;
+        if (pos < 0)
+            return message.channel.send(`Invalid position! Run the command again with a proper position.`);
         playlists.splice(pos, 0, obj);
         pos = playlists.indexOf(obj);
         fs.writeFileSync("commands/utils/navagos.json", `{"playlists":${JSON.stringify(playlists)}}`);
