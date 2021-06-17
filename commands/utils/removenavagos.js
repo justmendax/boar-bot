@@ -9,12 +9,14 @@ module.exports = {
     usage: "<position>",
     run: async (client, message, args) => {
         if (!args[0] || isNaN(args[0]))
-            message.channel.send(`Invalid argument! Run the command again with the following argument: \`${usage}\`.`);
+            return message.channel.send(`Invalid argument! Run the command again with the following argument: \`${module.exports.usage}\`.`);
 
         const pos = args[0] - 1;
 
         var navagos = JSON.parse(fs.readFileSync("commands/utils/navagos.json"));
         var playlists = navagos.playlists;
+        if (pos >= playlists.length || pos < 0)
+            return message.channel.send(`Invalid position! Run the command again with a proper position.`);
         const title = playlists[pos].title;
         playlists.splice(pos, 1);
         fs.writeFileSync("commands/utils/navagos.json", `{"playlists":${JSON.stringify(playlists)}}`);

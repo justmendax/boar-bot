@@ -11,7 +11,7 @@ module.exports = {
         if (!args[0] || isNaN(args[0]) || !args[1] || !args[2])
             return message.channel.send(`Invalid argument! Run the command again with the following arguments: \`${module.exports.usage}\`.`);
 
-        const pos = args[0] - 1;
+        var pos = args[0] - 1;
         const url = args[1];
         args.splice(0, 2);
         const title = args.join(" ");
@@ -24,6 +24,7 @@ module.exports = {
         var navagos = JSON.parse(fs.readFileSync("commands/utils/navagos.json"));
         var playlists = navagos.playlists;
         playlists.splice(pos, 0, obj);
+        pos = playlists.indexOf(obj);
         fs.writeFileSync("commands/utils/navagos.json", `{"playlists":${JSON.stringify(playlists)}}`);
 
         const embed = new MessageEmbed()
