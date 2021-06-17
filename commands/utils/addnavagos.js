@@ -8,8 +8,8 @@ module.exports = {
     description: "Adds a playlist to the Navagos playlists :boar:",
     usage: "<position url title>",
     run: async (client, message, args) => {
-        if (!args[0] || !args[1] || !args[2])
-            message.channel.send(`Invalid argument! Run the command again with the following arguments: \`${usage}\`.`);
+        if (!args[0] || isNaN(args[0]) || !args[1] || !args[2])
+            return message.channel.send(`Invalid argument! Run the command again with the following arguments: \`${module.exports.usage}\`.`);
 
         const pos = args[0] - 1;
         const url = args[1];

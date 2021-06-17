@@ -15,7 +15,7 @@ module.exports = {
     exceptCooldown: false,
     run: async (client, message, args) => {
         if (!args[0]) {
-            message.channel.send(`Invalid argument! Run the command again with the following argument: \`${usage}\`.`);
+            message.channel.send(`Invalid argument! Run the command again with the following argument: \`${module.exports.usage}\`.`);
             return module.exports.exceptCooldown = true;
         }
 
