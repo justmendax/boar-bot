@@ -28,9 +28,10 @@
     "manea": "^1.4.8",
     "node-fetch": "^2.6.1",
     "opusscript": "^0.0.7",
+    "pg": "^8.6.0",
     "seconds-formater": "^1.2.0",
     "snekfetch": "^4.0.4",
-    "unsplash-js": "^6.3.0",
+    "unsplash-js": "^7.0.13",
     "utf-8-validate": "^5.0.2",
     "ytdl-core": "^4.0.0"
   },
