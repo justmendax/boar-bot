@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { hostGuild } = require("../../bot.js");
-const { Client } = require("pg");
+const { Pool } = require("pg");
 
 module.exports = {
     name: "navagos",
@@ -14,24 +14,18 @@ module.exports = {
             .setFooter(client.user.username, client.user.avatarURL())
             .setTitle("Navagos Playlists");
 
-        const db = new Client({
+        const pool = new Pool({
             connectionString: process.env.DATABASE_URL,
             ssl: {
                 rejectUnauthorized: false
             }
         });
 
-        db.connect();
+        const res = await pool.query('SELECT * FROM playlists ORDER BY id ASC;');
+        await pool.end();
 
-        db.query('SELECT * FROM playlists', (err, res) => {
-            if(err)
-                throw err;
-            else {
-                res.rows.forEach(row => embed.addField(`${row.id}. ${row.title}`, row.url));
-            }
-        });
+        res.rows.forEach(row => embed.addField(`${row.id}. ${row.title}`, row.url));
 
-        db.end();
-        message.channel.send(embed);
+        message.channel.send(embed)
     }
 }
